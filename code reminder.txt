@@ -1,0 +1,15 @@
+import products from '@/app/models/productsmodles'
+const adnan = async () => {
+        Connect()
+    
+        const doc = new products({
+            username: "arsalan",
+            email: "arsalad",
+        });
+        await doc.save();
+        const productData = await products.find();
+        console.log(productData);
+    }
+    adnan();
+    
+    
