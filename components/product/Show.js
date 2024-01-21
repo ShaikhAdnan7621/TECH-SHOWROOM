@@ -80,7 +80,7 @@ function Show(props) {
                                             src={
                                                 image[nthimahge]
                                                     ? image[nthimahge]
-                                                    : "https://eurogrid.in/wp-content/uploads/2017/06/product_image_not_available.png"
+                                                    : "/product_image_not_available.png"
                                             }
                                             fill={true}
                                             alt="Phone Image"
