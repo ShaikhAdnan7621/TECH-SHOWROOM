@@ -7,6 +7,7 @@ import Image from "next/image";
 function Show(props) {
     const data = props.data;
     const image = props.data.image;
+    console.log(data)
     const [nthimahge, setnthimahge] = useState(0);
     const see = (index) => {
         setnthimahge(index);

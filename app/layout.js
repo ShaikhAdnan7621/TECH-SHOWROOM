@@ -18,7 +18,6 @@ export default function RootLayout({ children }) {
                     <Darkmodetoggle />
                 </div>
                 <Toaster position="bottom-left" reverseOrder={false} />
-
                 <div className=" max-w-7xl dark:bg-black mx-auto">
                     <div className="px-3 sm:px-11 md:px-13 lg:px-14 mt-5">
                         {children}

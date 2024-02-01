@@ -1,7 +1,5 @@
 import { NextResponse } from "next/server";
 import { writeFile, mkdir } from "fs/promises";
-import { dirname } from 'path';
-import { fileURLToPath } from 'url';
 
 export async function POST(req, resp) {
     try {
@@ -21,14 +19,11 @@ export async function POST(req, resp) {
         const datePath = `${today.getFullYear()}-${String(
             today.getMonth() + 1,
         ).padStart(2, "0")}-${String(today.getDate()).padStart(2, "0")}`;
-        const __dirname = dirname(fileURLToPath(import.meta.url));
-        const folderPath = `${__dirname}/public/Productimage/${datePath}`;
+        const folderPath = `./public/Productimage/${datePath}`;
         await mkdir(folderPath, { recursive: true });
         const location = `/Productimage/${datePath}/${file.name}`;
         const path = `${folderPath}/${file.name}`;
         await writeFile(path, buffer);
-
-        console.log(`File saved at: ${path}`); // This will log the path of the file
 
         return NextResponse.json({
             message: "File saved successfully",

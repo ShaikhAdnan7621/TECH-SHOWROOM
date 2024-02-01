@@ -5,7 +5,6 @@ import { useState, useEffect } from "react";
 function Darkmodetoggle() {
     const [isDarkMode, setIsDarkMode] = useState(false);
     useEffect(() => {
-        // Check the dark mode preference in local storage
         const savedDarkMode = localStorage.getItem("darkMode");
         if (savedDarkMode) {
             setIsDarkMode(savedDarkMode === "true");
@@ -14,14 +13,13 @@ function Darkmodetoggle() {
                 savedDarkMode === "true",
             );
         } else {
-            // If no preference is saved, use the system preference
             const isSystemDarkMode = window.matchMedia(
                 "(prefers-color-scheme: dark)",
             ).matches;
             setIsDarkMode(isSystemDarkMode);
             document.documentElement.classList.toggle("dark", isSystemDarkMode);
         }
-    }, []);
+    }, [isDarkMode]);
 
     const toggleDarkMode = () => {
         const newDarkMode = !isDarkMode;
@@ -36,9 +34,9 @@ function Darkmodetoggle() {
             onClick={toggleDarkMode}
             className={`${
                 isDarkMode
-                    ? "bg-transparent text-white"
+                    ? "bg-transparent text-white "
                     : "bg-transparent text-black"
-            } p-0.5 rounded-full focus:outline-none border-2  border-black dark:border-white `}
+            } p-0.5 rounded-full focus:outline-none border-2 border-black dark:border-white `}
         >
             {isDarkMode ? (
                 <svg width="20" height="20" x="0" y="0" viewBox="0 0 32 32">

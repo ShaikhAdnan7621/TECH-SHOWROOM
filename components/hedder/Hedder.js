@@ -18,7 +18,7 @@ const Hedder = () => {
     return (
         <>
             <div
-                className="nav  py-3 sm:px-7  bg-white dark:bg-black "
+                className="nav  py-3 sm:px-7  bg-white dark:bg-black w-full overflow-hidden"
                 data-aos="fade-down"
                 data-aos-duration="800"
                 data-aos-delay="100"
@@ -46,8 +46,8 @@ const Hedder = () => {
                         <Searchbar />
                     </div>
                 </div>
-                <div className="flex mt-2 items-center justify-between mb-2 relative">
-                    <div className="h-14 sm:ml-3 ml-1 mr-1 sm:px-3 px-1 overflow-x-auto no-scrollbar mt-2">
+                <div className="flex mt-2 items-center justify-between mb-2 relative ovh">
+                    <div className=" h-14 sm:ml-3 sm:px-3 px-2 overflow-x-auto no-scrollbar pt-2">
                         <ul className="flex my-auto py-2">
                             <li
                                 className="active:scale-110 duration-100"
@@ -92,32 +92,32 @@ const Hedder = () => {
                                 className="active:scale-110 duration-100"
                                 data-aos="fade-left"
                                 data-aos-duration="1000"
-                                data-aos-delay="1350"
+                                data-aos-delay="1200"
                             >
                                 <Link
-                                    href="/"
-                                    className="py-2 px-3 border dark:bg-black rounded-full active:scale-110 mb-2 focus:outline-none border-gray-300 focus:border-gray-600 dark:bg-transparent bg-white text-black dark:text-white mx-1 "
+                                    href="/Post/Search"
+                                    className="py-2 px-3 border dark:bg-black rounded-full mb-2 focus:outline-none active:scale-110 border-gray-300 focus:border-gray-600 dark:bg-transparent bg-white text-black dark:text-white mx-1 "
                                 >
-                                    Home
+                                    Posts
                                 </Link>
                             </li>
                             <li
                                 className="active:scale-110 duration-100"
                                 data-aos="fade-left"
                                 data-aos-duration="1000"
-                                data-aos-delay="1500"
+                                data-aos-delay="1200"
                             >
                                 <Link
-                                    href="/"
-                                    className="py-2 px-3 border dark:bg-black rounded-full active:scale-110 mb-2 focus:outline-none border-gray-300 focus:border-gray-600 dark:bg-transparent bg-white text-black dark:text-white mx-1 "
+                                    href="/Post/Search"
+                                    className="py-2 px-3 border dark:bg-black rounded-full mb-2 focus:outline-none active:scale-110 border-gray-300 focus:border-gray-600 dark:bg-transparent bg-white text-black dark:text-white mx-1 "
                                 >
-                                    Home
+                                    Posts
                                 </Link>
                             </li>
                         </ul>
                     </div>
-                    <div className="w-14 ml-1 mr-3">
-                        <div className="w-16 flex flex-col justify-center items-center">
+                    <div className="w-16 ml-1 mr-3">
+                        <div className="w-20 flex flex-col justify-center items-center">
                             <Link
                                 href="/Profile"
                                 className="py-2 active:scale-110 focus:outline-none focus:border-none "
@@ -129,6 +129,7 @@ const Hedder = () => {
                                     <Image
                                         src="/image.jpg"
                                         fill={true}
+                                        sizes="100"
                                         className="object-cover h-10 w-10"
                                         alt=""
                                     />
