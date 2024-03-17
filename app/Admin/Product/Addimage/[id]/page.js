@@ -3,7 +3,7 @@ import Loading from "@/components/Loading";
 import Mbutton from "@/components/buttons/Mbutton";
 import axios from "axios";
 import Image from "next/image";
-import React, { useEffect, useState } from "react";
+import React, { useCallback, useEffect, useState } from "react";
 import toast from "react-hot-toast";
 
 function Page({ params }) {
@@ -12,8 +12,7 @@ function Page({ params }) {
     const [product, setproduct] = useState([]);
     const [loading, setloading] = useState(true);
     const [loading2, setloading2] = useState(false);
-
-    const getproductdata = async () => {
+    const getproductdata = useCallback(async () => {
         try {
             setloading(true);
             const responce = await axios.post(
@@ -34,7 +33,8 @@ function Page({ params }) {
         } finally {
             setloading(false);
         }
-    };
+    }, [params]);
+
     const updateproduct = async () => {
         try {
             setloading2(true);
@@ -53,8 +53,7 @@ function Page({ params }) {
 
     useEffect(() => {
         getproductdata();
-    }, []);
-
+    }, [getproductdata]);
     return (
         <>
             {loading ? (
@@ -196,7 +195,9 @@ function Page({ params }) {
                                             if (
                                                 newimageurl.includes("/") &&
                                                 (newimageurl.includes(".jpg") ||
-                                                    newimageurl.includes(".png"))
+                                                    newimageurl.includes(
+                                                        ".png",
+                                                    ))
                                             ) {
                                                 if (newimageurl === "") {
                                                     return;

@@ -2,7 +2,7 @@
 import Loading from "@/components/Loading";
 import BackButton from "@/components/buttons/BackButton";
 import axios from "axios";
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useCallback } from "react";
 
 export default function Page({ params }) {
     const [loading, setloading] = useState(true);
@@ -25,11 +25,8 @@ export default function Page({ params }) {
     const [Price, setPrice] = useState(0);
     const [olddata, setolddata] = useState({});
 
-    useEffect(() => {
-        getproductdata();
-    }, [params]);
-
-    const getproductdata = async () => {
+    // Wrap getproductdata with useCallback
+    const getproductdata = useCallback(async () => {
         try {
             const responce = await axios.post(
                 "/api/admin/products/search/onebyid",
@@ -59,8 +56,12 @@ export default function Page({ params }) {
         } finally {
             setloading(false);
         }
-    };
+    }, [params]); // Include params in the dependencies array
 
+    useEffect(() => {
+        getproductdata();
+    }, [getproductdata]);
+    
     const updateproduct = async () => {
         {
             const productdata = {
