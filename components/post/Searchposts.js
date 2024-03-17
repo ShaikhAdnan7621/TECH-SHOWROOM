@@ -18,7 +18,7 @@ function Searchposts() {
                 }}
                 className="w-full bg-transparent text-sm focus:outline-none dark:text-white dark:bg-black placeholder-gray-500"
             />
-            <span className=" border my-1 mx-1 sm:block hidden border-gray-400 "></span>
+            <span className="border my-1 mx-1 sm:block hidden border-gray-400 "></span>
 
             <Link
                 href={{

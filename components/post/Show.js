@@ -11,6 +11,7 @@ function Show(props) {
     const [comenttext, setcomenttext] = useState("");
     const [commentloading, setcommentloading] = useState(false);
     const [likeloading, setlikeloading] = useState(false);
+    const [showcomment, setshowcomment] = useState(false);
     const addcomment = async (id) => {
         try {
             setcommentloading(true);
@@ -99,9 +100,9 @@ function Show(props) {
                 </h1>
 
                 <div>
-                    <div className="h-10 flex justify-center items-center rounded-lg shadow-lg text-white group border ">
+                    <div className="h-10 flex justify-center items-center rounded-lg shadow-lg bg-gray-200 dark:bg-gray-900 text-white group border overflow-hidden">
                         <button
-                            className="w-10 h-10 p-1 group-active:scale-110 focus:outline-none"
+                            className="w-10 h-10 p-1  group-active:scale-110 focus:outline-none"
                             onClick={() => {
                                 addlike(data._id);
                             }}
@@ -127,7 +128,7 @@ function Show(props) {
                         <div className="py-1">
                             <span className="border mx-1 h-full border-gray-400 mt5 "></span>
                         </div>
-                        <span className="px-2 text-black dark:text-white">
+                        <span className="pl-2 pr-3 text-black dark:text-white">
                             {data.likes.length}
                         </span>
                     </div>
@@ -143,13 +144,13 @@ function Show(props) {
                 <div className="border rounded-lg flex items-center p-1 gap-1">
                     <input
                         type="text"
-                        className="w-full p-2 dark:bg-black rounded-lg shadow-lg focus:outline-none border "
+                        className="w-full p-2 bg-gray-200 dark:bg-gray-900 rounded-lg shadow-lg focus:outline-none "
                         placeholder="Add Comment"
                         value={comenttext}
                         onChange={(e) => setcomenttext(e.target.value)}
                     />
                     <button
-                        className="p-2 rounded-lg shadow-lg text-white group border focus:outline-none "
+                        className="p-2 rounded-lg shadow-lg text-white group bg-gray-200 dark:bg-gray-900 focus:outline-none "
                         onClick={() => {
                             if (comenttext === "") {
                                 return;
@@ -195,24 +196,38 @@ function Show(props) {
                         )}
                     </button>
                 </div>
-                <div className="mt-5">
-                    {data.comments.length > 0
-                        ? data.comments.map((comment, index) => (
-                              <div
-                                  key={index}
-                                  className="p-2 rounded-lg shadow-lg mb-3 border-t "
-                              >
-                                  <div className="will-change-contents">
-                                      <p className="">@{comment.username}</p>
-                                      <hr className="border-gray-400 dark:border-gray-500 mt-1" />
-                                  </div>
-                                  <p className="pl-1 mt-1 ">
-                                      {comment.comment}
-                                  </p>
-                              </div>
-                          ))
-                        : "No Comments Yet"}
+                <div  className="text-right mt-2 ">
+                    <button
+                        className="  group focus:outline-none hover:underline hover:underline-offset-1 "
+                        onClick={() => setshowcomment(!showcomment)}
+                    >
+                        {showcomment ? data.comments.length+" Hide Comments" : data.comments.length+" See Comments"}
+                    </button>
                 </div>
+                <hr className="mt-10 dark:text-white mb-5" />
+                {showcomment && (
+                    <div className="">
+                        {data.comments.length > 0
+                            ? data.comments.map((comment, index) => (
+                                  <div
+                                      key={index}
+                                      className="p-2 rounded-lg shadow-lg mb-3 border-t "
+                                  >
+                                      <div className="will-change-contents">
+                                          <p className="">
+                                              @{comment.username}
+                                          </p>
+                                          <hr className="border-gray-400 dark:border-gray-500 mt-1" />
+                                      </div>
+                                      <p className="pl-1 mt-1 ">
+                                          {comment.comment}
+                                      </p>
+                                  </div>
+                              ))
+                            : "No Comments Yet"}
+                        <hr className="mt-10 dark:text-white" />
+                    </div>
+                )}
             </div>
         </div>
     );

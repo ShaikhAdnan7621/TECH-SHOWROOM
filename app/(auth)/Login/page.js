@@ -1,13 +1,11 @@
 "use client";
 import Link from "next/link";
 import React, { useEffect, useState } from "react";
-import { useRouter } from "next/navigation";
 import axios from "axios";
 import { toast } from "react-hot-toast";
 import Loading from "@/components/Loading";
 
 const Login = (obj) => {
-    const router = useRouter();
     const { searchParams } = obj;
     const frome = searchParams.from
     const [user, setuser] = useState({

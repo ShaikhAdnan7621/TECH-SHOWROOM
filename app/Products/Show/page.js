@@ -4,6 +4,8 @@ import Show from "@/components/product/Show";
 import Hedder from "@/components/hedder/Hedder";
 import axios from "axios";
 import Loading from "@/components/Loading";
+import Product_suggestions from "@/components/product/Product_suggestions";
+
 function Page(obj) {
     const { searchParams } = obj;
     const id = searchParams.id;
@@ -12,7 +14,7 @@ function Page(obj) {
     const [productfound, setproductfound] = useState(false);
     useEffect(() => {
         getProductData(id);
-    },[id]);
+    }, [id]);
 
     const getProductData = async (id) => {
         try {
@@ -38,7 +40,10 @@ function Page(obj) {
             ) : (
                 <div>
                     {productfound ? (
-                        <Show data={data} />
+                        <>
+                            <Show data={data} />
+                            <Product_suggestions brand={data.brand} count={4} id={data._id } />
+                        </>
                     ) : (
                         <h1>Product not found</h1>
                     )}
