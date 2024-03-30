@@ -8,7 +8,6 @@ const adnan = async () => {
         });
         await doc.save();
         const productData = await products.find();
-        console.log(productData);
     }
     adnan();
     

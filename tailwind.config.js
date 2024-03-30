@@ -1,5 +1,8 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
+    //class based thame
+
+    //class based thame
     darkMode: "class",
     content: [
         "./pages/**/*.{js,ts,jsx,tsx,mdx}",
@@ -8,6 +11,15 @@ module.exports = {
     ],
     theme: {
         extend: {
+            animation: {
+                "slide-in": "slide-in 0.5s ease-out",
+            },
+            keyframes: {
+                "slide-in": {
+                    "0%": { transform: "translateX(-100%)" },
+                    "100%": { transform: "translateX(0)" },
+                },
+            },
             backgroundImage: {
                 "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
                 "gradient-conic":
