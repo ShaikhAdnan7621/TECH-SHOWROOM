@@ -11,7 +11,7 @@ function Page() {
     return (
         <div className=" dark:text-white">
             <div className=" flex mt-5">
-                <BackButton text={"Go Back"} />
+                <BackButton text={"Back"} />
             </div>
             <h1>products Image Galary</h1>
             {subFolders.map((subFolder) => {

@@ -53,9 +53,7 @@ export default function Page() {
     return (
         <div className="dark:text-white text-black ">
             <h1 className="text-3xl text-center">Add Products </h1>
-            <Link className="text-lg mt-6 " href="/Admin">
-                Go Back
-            </Link>
+            <Link className="text-lg mt-6 " href="/Admin">Back</Link>
             <hr className="mt-4 mb-4 border-gray-700 dark:border-gray-300" />
             <div className="flex gap-4  sm:flex-row flex-col justify-center">
                 <div className="flex flex-col">
@@ -550,8 +548,7 @@ export default function Page() {
             <hr className="mt-4 mb-2 border-gray-700 dark:border-gray-300" />
             <div className="text-right flex justify-end items-center gap-10 ">
                 <div className="">
-                    {" "}
-                    {loading ? <Loading text={"please wait"} size={"5"} /> : ""}
+                    {loading ? <Loading text={"Please wait"} size={"5"} /> : ""}
                 </div>
                 <button
                     className="p-2 mb-2 rounded-lg mt-5 border border-gray-300 text-black dark:text-white w-72 focus:border-gray-900"

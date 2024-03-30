@@ -91,7 +91,7 @@ function Page() {
     return (
         <div className="dark:text-white mb-28">
             <div className=" flex mt-5">
-                <BackButton text={"Go Back"} />
+                <BackButton text={"Back"} />
             </div>
             <div className="">Upload image for Post</div>
             <div className="w-72 mx-auto">

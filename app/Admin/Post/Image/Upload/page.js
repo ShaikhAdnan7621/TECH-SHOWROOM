@@ -89,11 +89,11 @@ function Page() {
     };
 
     return (
-        <div className="dark:text-white mb-28">
-            <div className="flex">
-                <BackButton text={"Go Back"} />
+        <div className="dark:text-white mb-28 mt-10">
+            <div className="flex items-center justify-between ">
+                <BackButton text={"Back"} />
+                <div className="text-xl py-2 px-3 mb-2 w-10/12">Upload image for Post</div>
             </div>
-            <div className="">Upload image for Post</div>
             <div className="w-72 mx-auto">
                 <form onSubmit={uploadfile}>
                     <label

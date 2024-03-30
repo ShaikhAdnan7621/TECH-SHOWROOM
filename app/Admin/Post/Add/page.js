@@ -64,31 +64,28 @@ function Page() {
 
     return (
         <div className=" dark:text-white">
-            {
-                //add backbutton component
+            <div className="my-10 flex ">
+                <BackButton text={"Back"} />
+            </div>
 
-                <div className="mt-5 flex">
-                    <BackButton text={"Go Back"} />
-                </div>
-            }
             <div className="border-x-2 rounded-lg p-5 dark:border-gray-300 border-gray-900 shadow-xl ">
                 <div className="h-12 py-1">
                     <input
                         type="text"
                         placeholder="Title"
-                        className="w-full bg-transparent h-10 rounded-lg focus:outline-none px-2 border-y-2 dark:border-gray-300 border-gray-900"
+                        className="w-full bg-gray-200 dark:bg-slate-800 h-10 rounded-lg focus:outline-none px-2 border-y-2 dark:border-gray-300 border-gray-900"
                         value={title}
                         onChange={(e) => settitle(e.target.value)}
                     />
                 </div>
                 {error && title === "" && (
                     <p className="text-red-500 text-sm">
-                        All fields are required*
+                        All fields are required
                     </p>
                 )}
                 <div className=" mt-5">
                     <textarea
-                        className="w-full h-72 bg-transparent rounded-lg focus:outline-none px-2 border-y-2 dark:border-gray-300 border-gray-900"
+                        className="w-full bg-gray-200 dark:bg-slate-800 h-72 bg-transparent rounded-lg focus:outline-none px-2 border-y-2 dark:border-gray-300 border-gray-900"
                         name="description"
                         id="description"
                         placeholder="Description"
@@ -135,7 +132,7 @@ function Page() {
                         <input
                             type="text"
                             placeholder="URL"
-                            className="w-full bg-transparent border-y-2 h-10 rounded-lg focus:outline-none px-2 dark:border-gray-300 border-gray-900"
+                            className="w-full bg-gray-200 dark:bg-slate-800 bg-transparent border-y-2 h-10 rounded-lg focus:outline-none px-2 dark:border-gray-300 border-gray-900"
                             value={imageurl}
                             onChange={(e) => setimageurl(e.target.value)}
                         />
@@ -147,7 +144,7 @@ function Page() {
                     </div>
                     <div className=" mx-auto mt-3   md:mt-0">
                         <button
-                            className=" bg-transparent border-2 h-10 rounded-lg focus:outline-none px-2 dark:border-gray-300 border-gray-900"
+                            className=" bg-gray-200 dark:bg-slate-800 border-2 h-10 rounded-lg focus:outline-none px-2 dark:border-gray-300 border-gray-900"
                             onClick={() => {
                                 if (
                                     image.filter((i) => i.url === imageurl)
@@ -185,11 +182,11 @@ function Page() {
                                 </button>
                             </p>
                         ))}
-                        <div className=" border-2 pl-3 pr-1 py-0.5 rounded-full flex items-center dark:border-gray-300 border-gray-900">
+                        <div className=" border-2 pl-3 pr-1 py-0.5 rounded-full flex items-center  bg-gray-200 dark:bg-slate-800 dark:border-gray-300 border-gray-900">
                             <input
                                 type="text"
                                 placeholder="Tags"
-                                className="text-lg bg-transparent focus:outline-none"
+                                className="text-lg  bg-transparent focus:outline-none"
                                 value={newtag}
                                 onChange={(e) => {
                                     setnewtag(e.target.value);
@@ -210,7 +207,6 @@ function Page() {
                             <button
                                 className="text-xl w-6 h-6 rounded-full border dark:border-gray-300 border-gray-900"
                                 onClick={() => {
-                                    //if at last of newtag is ',' then remove
                                     if (newtag.endsWith(",")) {
                                         var thistag = newtag.slice(0, -1);
                                     } else {
@@ -271,12 +267,10 @@ function Page() {
                                 All fields are required*
                             </p>
                         )}
-                        {dateerror ? (
+                        {dateerror && (
                             <p className="text-red-500">
                                 Please select upcoming date
                             </p>
-                        ) : (
-                            ""
                         )}
                     </div>
 
@@ -289,14 +283,7 @@ function Page() {
                         />
                     </div>
                     <div>
-                        {
-                            //if loading is true then show loader
-                            loading ? (
-                                <Loading text={"POSTING"} size={"5"} />
-                            ) : (
-                                ""
-                            )
-                        }
+                        {loading && <Loading text={"POSTING"} size={"5"} />}
                     </div>
                 </div>
             </div>

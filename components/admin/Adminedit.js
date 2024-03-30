@@ -42,7 +42,7 @@ const Adminedit = (props) => {
                 </div>
                 <div className="">
                     {" "}
-                    {loading ? <Loading text={"please wait"} size={"5"} /> : ""}
+                    {loading ? <Loading text={"Please wait"} size={"5"} /> : ""}
                 </div>
             </div>
             <hr className="mt-5 border-gray-800" />

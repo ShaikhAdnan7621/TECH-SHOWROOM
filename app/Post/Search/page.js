@@ -26,7 +26,7 @@ async function Page(obj) {
     return (
         <div className="dark:text-white">
             <div className="flex justify-between mb-3">
-                <BackButton text={"Go Back"} />
+                <BackButton text={"Back"} />
                 <Searchposts />
             </div>
             <hr />

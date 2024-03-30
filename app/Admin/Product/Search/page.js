@@ -63,7 +63,7 @@ export default function Page() {
         >
             <div className="flex justify-between">
                 <div className="">
-                    <BackButton text={"Go Back"} />
+                    <BackButton text={"Back"} />
                 </div>
                 <div className="flex items-center justify-end dark:bg-black dark:text-white gap-4">
                     {loading ? <Loading text={"Please wait"} size={"5"} /> : ""}

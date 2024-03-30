@@ -1,6 +1,6 @@
-import Darkmodetoggle from "@/components/buttons/Darkmodetoggle";
 import "./globals.css";
-import { Inter, Orbitron } from "next/font/google";
+import Darkmodetoggle from "@/components/buttons/Darkmodetoggle.js";
+import { Inter } from "next/font/google";
 import { Toaster } from "react-hot-toast";
 
 const inter = Inter({ subsets: ["latin"] });
@@ -19,7 +19,7 @@ export default function RootLayout({ children }) {
                 </div>
                 <Toaster position="bottom-left" reverseOrder={false} />
                 <div className=" max-w-7xl dark:bg-black mx-auto">
-                    <div className="px-3 sm:px-11 md:px-13 lg:px-14 mt-5">
+                    <div className="px-3 sm:px-11 md:px-13 lg:px-14 ">
                         {children}
                     </div>
                 </div>

@@ -47,7 +47,7 @@ function Page(obj) {
     return (
         <div className="mb-20 dark:text-white">
             <div className="flex dark:text-white ">
-                <BackButton text={"Go Back"} />
+                <BackButton text={"Back"} />
             </div>
             {postfound ? (
                 <div className="border-x-2 rounded-lg p-5 dark:border-gray-300 border-gray-900 shadow-xl ">

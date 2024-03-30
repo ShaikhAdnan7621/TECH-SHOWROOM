@@ -1,6 +1,6 @@
 "use client";
 import Link from "next/link";
-import React, {  useState } from "react";
+import React, { useState } from "react";
 
 const Searchbar = () => {
     const [fild, setfild] = useState("brand");
@@ -13,6 +13,7 @@ const Searchbar = () => {
                     id="countries"
                     onClick={(e) => {
                         setfild(e.target.value);
+                        setvaluse("");
                     }}
                     className="text-black dark:text-white dark:bg-black bg-white bg-transparent  focus:outline-none focus:border-none sm:w-20"
                 >
@@ -31,8 +32,28 @@ const Searchbar = () => {
                     className=" text-black dark:text-white bg-transparent focus:outline-none focus:border-none w-16 px-2 sm:w-40 border-solid "
                     type="search"
                     name="search"
+                    value={valuse}
                     onChange={(e) => {
-                        setvaluse(e.target.value);
+                        const valuse = e.target.value;
+                        switch (fild) {
+                            case "brand":
+                            case "OS":
+                                if (/^[a-zA-Z]+$/.test(valuse)) {
+                                    setvaluse(valuse);
+                                }
+                                break;
+                            case "RAM":
+                            case "Storage":
+                            case "FrontCamera":
+                            case "RearCamera":
+                                if (/^[0-9]+$/.test(valuse)) {
+                                    setvaluse(valuse);
+                                }
+                                break;
+                            default:
+                                setvaluse(valuse);
+                                break;
+                        }
                     }}
                     placeholder="Search"
                     onKeyUp={(e) => {

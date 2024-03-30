@@ -6,7 +6,7 @@ import { useEffect, useState } from "react";
 
 function Page() {
     const [Loading1, setLoading] = useState(true);
-    const [Respo, setRespo] = useState(false);
+    const [Responce, setResponce] = useState(false);
     const [Showdashbord, setShowdashbord] = useState(false);
 
     useEffect(() => {
@@ -14,34 +14,52 @@ function Page() {
         setLoading(false);
     }, []);
     const getuserdata = async () => {
-        const responce = await axios.get("/api/admin/admindata");
-        if (responce.data.data === undefined) {
-            setRespo(true);
-            return;
-        }
-        if (responce.data.data.isAdmin) {
-            setShowdashbord(true);
+        try {
+            const responce = await axios.get("/api/admin/admindata");
+            if (responce.data.data === undefined) {
+                setResponce(true);
+                return;
+            }
+            if (responce.data.data.isAdmin) {
+                setShowdashbord(true);
+            }
+        } catch (err) {
+            setResponce(true);
         }
     };
 
+    if (Loading1) {
+        return (
+            <div className="text-black dark:text-white mt-10">
+                <Loading text={"Please Wait"} size={"5"} />
+            </div>
+        );
+    }
+
+    if (Responce) {
+        return (
+            <div className=" mt-10 h-full w-full flex itme justify-center text-black dark:text-white">
+                <div className="text-center">
+                    <h1 className="text-3xl font-bold">You are not Admin</h1>
+                    <p className="text-xl mt-4 bg-red-500 bg-opacity-90 rounded-lg px-2 py-1">
+                        You are not allowed to access this page
+                    </p>
+                    <h1 className="mt-8" >
+                        <Link
+                            href={"/"}
+                            className="py-2 px-5 bg-gray-500 rounded-lg text-white hover:bg-gray-600"
+                        >
+                            Go to Home
+                        </Link>
+                    </h1>
+                </div>
+            </div>
+        );
+    }
     return (
         <div className="text-black dark:text-white">
-            {Loading1 ? (
-                <Loading
-                    text={"Please wait while we check your Account information"}
-                    size={"5"}
-                />
-            ) : (
-                ""
-            )}
-            {Respo ? (
-                <div className="h-full w-full flex itme justify-center text-black dark:text-white">
-                    <h1>Only Admins Have This Page Permition</h1>
-                </div>
-            ) : (
-                ""
-            )}
-            {Showdashbord ? (
+            <div></div>
+            {Showdashbord && (
                 <>
                     <div className="">
                         <div>
@@ -111,8 +129,6 @@ function Page() {
                         </div>
                     </div>
                 </>
-            ) : (
-                ""
             )}
         </div>
     );
@@ -120,9 +136,9 @@ function Page() {
 
 export default Page;
 
-//     /* <Link
+// <Link
 //     href={"/Product"}
 //     className="py-1 px-2 border border-gray-500 rounded-lg "
-// >
+//  >
 //     Product
-// </Link>; */
+// </Link>;

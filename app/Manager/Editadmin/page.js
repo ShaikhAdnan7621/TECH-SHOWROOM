@@ -36,7 +36,7 @@ function Createadminid() {
 
     return (
         <div className="h-full w-full flex-col text-center text-black dark:text-white flex items-center justify-center">
-            <Link href={"/Manager"}>Go Back</Link>
+            <Link href={"/Manager"}>Back</Link>
             <div>
                 <h1>
                     <input
@@ -55,7 +55,7 @@ function Createadminid() {
                     seach user
                 </button>
                 <div>
-                    {loading ? <Loading text={"please wait"} size={"5"} /> : ""}
+                    {loading ? <Loading text={"Please wait"} size={"5"} /> : ""}
                 </div>
             </div>
             <div className="mt-12">

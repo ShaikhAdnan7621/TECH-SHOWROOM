@@ -21,6 +21,6 @@ function BackButton(params) {
         </div>
     );
 }
-// <BackButton   text={"Go Back"}/>
+// <BackButton   text={"Back"}/>
 
 export default BackButton;

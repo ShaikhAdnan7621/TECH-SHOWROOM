@@ -4,7 +4,10 @@
 
 .vertical {
     appearance: slider-vertical;
+    
 }
+
+
 
 @layer utilities {
     @variants responsive {

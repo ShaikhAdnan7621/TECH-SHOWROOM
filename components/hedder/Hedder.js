@@ -88,32 +88,6 @@ const Hedder = () => {
                                     Posts
                                 </Link>
                             </li>
-                            <li
-                                className="active:scale-110 duration-100"
-                                data-aos="fade-left"
-                                data-aos-duration="1000"
-                                data-aos-delay="1200"
-                            >
-                                <Link
-                                    href="/Post/Search"
-                                    className="py-2 px-3 border dark:bg-black rounded-full mb-2 focus:outline-none active:scale-110 border-gray-300 focus:border-gray-600 dark:bg-transparent bg-white text-black dark:text-white mx-1 "
-                                >
-                                    Posts
-                                </Link>
-                            </li>
-                            <li
-                                className="active:scale-110 duration-100"
-                                data-aos="fade-left"
-                                data-aos-duration="1000"
-                                data-aos-delay="1200"
-                            >
-                                <Link
-                                    href="/Post/Search"
-                                    className="py-2 px-3 border dark:bg-black rounded-full mb-2 focus:outline-none active:scale-110 border-gray-300 focus:border-gray-600 dark:bg-transparent bg-white text-black dark:text-white mx-1 "
-                                >
-                                    Posts
-                                </Link>
-                            </li>
                         </ul>
                     </div>
                     <div className="w-16 ml-1 mr-3">

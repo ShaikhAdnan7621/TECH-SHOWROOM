@@ -24,15 +24,16 @@ function Page(obj) {
         setloading(false);
     };
     return (
-        <div className="mb-20 dark:text-white">
+        <div className="mb-20 mt-10 dark:text-white">
             <div className="flex dark:text-white ">
-                <BackButton text={"Go Back"} />
+                <BackButton text={"Back"} />
             </div>
-            {loading ? (
+            {loading && (
                 <div className="my-5">
-                    <Loading text={"Login"} size={"5"} />
+                    <Loading text={"Please wait..."} size={"5"} />
                 </div>
-            ) : (
+            )}
+            {!loading && (
                 <div>
                     {postfound ? (
                         <>

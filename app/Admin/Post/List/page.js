@@ -19,7 +19,7 @@ async function Page() {
     return (
         <div className="dark:text-white">
             <div className="flex">
-                <BackButton text={"Go Back"} />
+                <BackButton text={"Back"} />
                 <h1 className="text-3xl font-bold ml-2">Posts</h1>
             </div>
 
