@@ -39,6 +39,7 @@ const Signup = () => {
             if (buttondisabled) {
                 return;
             }
+            
             const response = await axios.post("./api/users/signup", user);
             if (response.data.status == 400) {
                 toast.error(response.data.error);
@@ -93,7 +94,7 @@ const Signup = () => {
                     }}
                     placeholder="Email"
                 />
-                <label htmlFor="password" className="text-left">
+                <label htmlFor="passwowrd" className="text-left">
                     Password
                 </label>
 

@@ -5,6 +5,7 @@ import Hedder from "@/components/hedder/Hedder";
 import axios from "axios";
 import Loading from "@/components/Loading";
 import Product_suggestions from "@/components/product/Product_suggestions";
+import Post_suggestion from "@/components/post/Post_suggestion";
 
 function Page(obj) {
     const { searchParams } = obj;
@@ -43,6 +44,10 @@ function Page(obj) {
                         <>
                             <Show data={data} />
                             <Product_suggestions brand={data.brand} count={4} id={data._id } />
+                            <Post_suggestion
+                                tags={data.Phone}
+                                count={6}
+                            />
                         </>
                     ) : (
                         <h1>Product not found</h1>

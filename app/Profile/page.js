@@ -28,7 +28,9 @@ const Profile = () => {
     const getuserdata = async () => {
         const responce = await axios.get("/api/users/userdata");
         setdata(responce.data.data);
+        console.log(responce.data.data)
     };
+    
     return (
         <>
             <div className="flex justify-between mt-10">
@@ -58,3 +60,7 @@ const Profile = () => {
 };
 
 export default Profile;
+
+
+
+// localhost:3000/Profile
