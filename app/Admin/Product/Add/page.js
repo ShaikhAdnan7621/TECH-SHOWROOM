@@ -19,18 +19,18 @@ export default function Page() {
     const [addfrontCamera, setaddfrontCameraarr] = useState("");
 
     const [product, setproduct] = useState({
-        brand: "", //done
-        Phone: "", //done
-        ReleaseDate: "", //done
-        OS: "", //done
-        Display: ["", ""], //done
-        Processor: "", //done
-        Storage: [storagearr], //done
-        RAM: [ramarr], //done
-        RearCamera: [], //done
-        FrontCamera: [], //done
-        Price: 0, //done
-        rank: 0, //default
+        brand: "",
+        Phone: "",
+        ReleaseDate: "",
+        OS: "",
+        Display: ["", ""],
+        Processor: "",
+        Storage: [storagearr],
+        RAM: [ramarr],
+        RearCamera: [],
+        FrontCamera: [],
+        Price: 0,
+        rank: 0,
     });
 
     const addproduct = async () => {
@@ -51,9 +51,9 @@ export default function Page() {
     };
 
     return (
-        <div className="dark:text-white text-black ">
+        <div className="dark:text-white text-black py-10  ">
             <h1 className="text-3xl text-center">Add Products </h1>
-            <Link className="text-lg mt-6 " href="/Admin">Back</Link>
+            <Link className="text-lg mt-6 hover:scale-105 dark:hover:bg-gray-800 hover:bg-gray-200 duration-100  focus:outline-none  hover:shadow-sm hover:shadow-gray-600 dark:hover:shadow-gray-500 " href="/Admin">Back</Link>
             <hr className="mt-4 mb-4 border-gray-700 dark:border-gray-300" />
             <div className="flex gap-4  sm:flex-row flex-col justify-center">
                 <div className="flex flex-col">

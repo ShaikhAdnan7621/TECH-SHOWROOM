@@ -55,7 +55,7 @@ function Page({ params }) {
         getproductdata();
     }, [getproductdata]);
     return (
-        <>
+        <div className="py-10">
             {loading ? (
                 <Loading text={"Loading"} size={"5"} />
             ) : (
@@ -64,7 +64,7 @@ function Page({ params }) {
                         <>
                             <div className="">
                                 <div className="w-full">
-                                    <h1>Product Name:- {product.Phone}</h1>
+                                    <h1 className="text-3xl mb-3">Set images of {product.Phone}</h1>
                                 </div>
                                 <div className="w-full mt-5">
                                     <div className=" flex flex-wrap justify-center gap-4">
@@ -228,7 +228,7 @@ function Page({ params }) {
                     {loading2 ? <Loading text={"Loading"} size={"5"} /> : ""}
                 </div>
             )}
-        </>
+        </div>
     );
 }
 

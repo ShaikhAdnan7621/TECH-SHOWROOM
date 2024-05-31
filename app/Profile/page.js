@@ -33,7 +33,7 @@ const Profile = () => {
     
     return (
         <>
-            <div className="flex justify-between mt-10">
+            <div className="flex justify-between pt-10 ">
                 <BackButton text={"Back"} />
                 <button
                     onClick={onlogout}
@@ -42,7 +42,7 @@ const Profile = () => {
                     Logout
                 </button>
             </div>
-            <div className=" text-black dark:text-white ">
+            <div className=" text-black dark:text-white pb-10">
                 <Usercardimage data={data} />
                 {data.isAdmin && (
                     <div className="mt-4">

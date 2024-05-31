@@ -89,7 +89,7 @@ function Page() {
     };
 
     return (
-        <div className="dark:text-white mb-28 mt-10">
+        <div className="dark:text-white mb-28 pt-10">
             <div className="flex items-center justify-between ">
                 <BackButton text={"Back"} />
                 <div className="text-xl py-2 px-3 mb-2 w-10/12">Upload image for Post</div>

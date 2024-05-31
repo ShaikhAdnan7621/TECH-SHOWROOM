@@ -9,17 +9,17 @@ function Page() {
     const subFolders = fs.readdirSync(path);
 
     return (
-        <div className=" dark:text-white">
-            <div className=" flex mt-5">
+        <div className=" dark:text-white py-10">
+            <div className=" flex ">
                 <BackButton text={"Back"} />
             </div>
-            <h1>products Image Galary</h1>
+            <h1 className="text-3xl">products Image Galary</h1>
             {subFolders.map((subFolder) => {
                 return (
                     <>
                         <div className="justify-center">
                             <div className="flex">
-                                <h1 className=" mt-8 mb-5 bg-slate-500 rounded-lg py-1 px-2">
+                                <h1 className=" mt-5 mb-5 bg-slate-500 rounded-lg py-1 px-2">
                                     {subFolder}
                                 </h1>
                             </div>

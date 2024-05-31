@@ -34,7 +34,7 @@ function Page(obj) {
     };
 
     return (
-        <>
+        <div className="pb-10">
             <Hedder />
             {loading ? (
                 <Loading text={"Login"} size={"5"} />
@@ -54,7 +54,7 @@ function Page(obj) {
                     )}
                 </div>
             )}
-        </>
+        </div>
     );
 }
 

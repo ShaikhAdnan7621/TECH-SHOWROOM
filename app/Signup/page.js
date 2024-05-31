@@ -8,7 +8,6 @@ import Loading from "@/components/Loading";
 import { z } from "zod";
 
 const Signup = () => {
-
     const router = useRouter();
     const [user, setuser] = useState({
         email: "",
@@ -22,7 +21,9 @@ const Signup = () => {
     const userSchema = z.object({
         username: z.string().min(6, "Invalid Username"),
         email: z.string().email("Invalid Email Address"),
-        password: z.string().min(8, "Password must be at least 8 characters long"),
+        password: z
+            .string()
+            .min(8, "Password must be at least 8 characters long"),
     });
 
     const onsignup = async () => {
@@ -39,7 +40,7 @@ const Signup = () => {
             if (buttondisabled) {
                 return;
             }
-            
+
             const response = await axios.post("./api/users/signup", user);
             if (response.data.status == 400) {
                 toast.error(response.data.error);
@@ -58,7 +59,6 @@ const Signup = () => {
         setbuttondisabled(!result.success);
     }, [user]);
 
-    
     return (
         <>
             <div className="flex flex-col items-center justify-center min-h-screen py-2 text-black dark:text-white">
@@ -66,7 +66,7 @@ const Signup = () => {
                     {loding ? <Loading text={"SignUp"} size={"6"} /> : "SignUp"}
                 </h1>
                 <hr className="border-t border-gray-600 h-7" />
-                <label htmlFor="username" className="text-left">
+                <label htmlFor="username" className="text-left w-72 mb-2">
                     Username
                 </label>
 
@@ -80,7 +80,7 @@ const Signup = () => {
                     }
                     placeholder="UserName"
                 />
-                <label htmlFor="email" className="text-left">
+                <label htmlFor="email" className="text-left w-72 mb-2">
                     Email
                 </label>
 
@@ -94,7 +94,7 @@ const Signup = () => {
                     }}
                     placeholder="Email"
                 />
-                <label htmlFor="passwowrd" className="text-left">
+                <label htmlFor="passwowrd" className="text-left w-72 mb-2">
                     Password
                 </label>
 
@@ -110,13 +110,18 @@ const Signup = () => {
                 />
                 <button
                     onClick={onsignup}
-                    className="p-2 border text-black dark:text-white w-72 border-gray-800  dark:border-gray-300 rounded-lg mt-5 focus:outline-none focus:border-gray-600 "
+                    className="p-2 border text-black dark:text-white w-72 border-gray-800  dark:border-gray-300 rounded-lg mt-5 focus:outline-none focus:border-gray-600 hover:scale-105 hover:font-bold duration-100 "
                 >
                     <span>
                         {buttondisabled ? "Fill Details" : "Signup Now"}
                     </span>
                 </button>
-                <Link href="/Login" className="mt-4 underline ">tap to login</Link>
+                <Link
+                    href="/Login"
+                    className="mt-4 underline hover:text-blue-500"
+                >
+                    tap to login
+                </Link>
             </div>
         </>
     );

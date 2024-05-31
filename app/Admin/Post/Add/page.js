@@ -64,7 +64,7 @@ function Page() {
 
     return (
         <div className=" dark:text-white">
-            <div className="my-10 flex ">
+            <div className="py-10 flex ">
                 <BackButton text={"Back"} />
             </div>
 

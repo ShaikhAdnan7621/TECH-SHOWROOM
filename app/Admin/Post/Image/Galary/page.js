@@ -10,16 +10,16 @@ function Page() {
 
     return (
         <div className=" dark:text-white">
-            <div className=" flex mt-5">
+            <div className=" flex pt-10">
                 <BackButton text={"Go Back"} />
             </div>
-            <h1>Post Image Galary</h1>
+            <h1 className="text-3xl">Post Image Galary</h1>
             {subFolders.map((subFolder) => {
                 return (
                     <>
                         <div className="justify-center">
                             <div className="flex">
-                                <h1 className=" mt-8 mb-5 bg-slate-500 rounded-lg py-1 px-2">
+                                <h1 className=" mt-4 mb-5 bg-slate-500 rounded-lg py-1 px-2">
                                     {subFolder}
                                 </h1>
                             </div>

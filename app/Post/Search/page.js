@@ -24,8 +24,8 @@ async function Page(obj) {
     const { searchParams } = obj;
     var result = await getposts(searchParams);
     return (
-        <div className="dark:text-white">
-            <div className="flex justify-between mb-3">
+        <div className="dark:text-white py-10">
+            <div className="flex justify-between mb-2">
                 <BackButton text={"Back"} />
                 <Searchposts />
             </div>

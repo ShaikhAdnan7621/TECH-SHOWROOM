@@ -89,8 +89,8 @@ function Page() {
     };
 
     return (
-        <div className="dark:text-white mb-28">
-            <div className=" flex mt-5">
+        <div className="dark:text-white py-10 ">
+            <div className=" flex ">
                 <BackButton text={"Back"} />
             </div>
             <div className="">Upload image for Post</div>

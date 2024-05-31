@@ -89,7 +89,7 @@ export default function Page({ params }) {
     };
 
     return (
-        <div className="dark:text-white">
+        <div className="dark:text-white pt-10">
             <div className="flex gap-5 items-center">
                 <BackButton text={"Back"} />
                 <h1 className="text-3xl mb-2">Edit Product : {Phone} </h1>

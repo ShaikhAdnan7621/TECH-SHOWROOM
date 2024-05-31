@@ -2,14 +2,8 @@
 import Link from "next/link";
 import React, { useEffect } from "react";
 import Searchbar from "./Searchbar";
-import { Orbitron } from "next/font/google";
 import Image from "next/image";
 import aos from "aos";
-
-export const orbitron = Orbitron({
-    subsets: ["latin"],
-    weight: ["400", "500", "700", "900"],
-});
 
 const Hedder = () => {
     useEffect(() => {
@@ -18,24 +12,21 @@ const Hedder = () => {
     return (
         <>
             <div
-                className="nav  py-3 sm:px-7  bg-white dark:bg-black w-full overflow-hidden"
+                className="nav py-3 sm:px-7 bg-transparent rounded-lg w-full overflow-hidden"
                 data-aos="fade-down"
                 data-aos-duration="800"
                 data-aos-delay="100"
             >
                 <div className="sm:mx-3 justify-between flex sm:flex-row flex-col items-center sm:px-3  px-1 mx-1">
                     <div
-                        className={
-                            " mr-auto text-black dark:text-white " +
-                            orbitron.className
-                        }
+                        className={" mr-auto text-black dark:text-white "}
                         data-aos="fade-left"
                         data-aos-duration="1000"
                         data-aos-delay="900"
                     >
-                        Tech
+                        <span className="text-xl font-bold">Tech</span>
                         <br />
-                        Showroom
+                        <span className="text-xl font-bold">Showroom</span>
                     </div>
                     <div
                         className="flex ml-auto"
@@ -57,7 +48,7 @@ const Hedder = () => {
                             >
                                 <Link
                                     href="/"
-                                    className="py-2 px-3 border dark:bg-black rounded-full  mb-2 focus:outline-none border-gray-300 focus:border-gray-600 dark:bg-transparent bg-white text-black dark:text-white mx-1 "
+                                    className=" mr-2 py-2 px-3 border dark:bg-black rounded-full mb-2 active:scale-110 focus:border-gray-600 dark:bg-transparent bg-white text-black dark:text-white border-gray-500 w-52 text-center mx-auto hover:scale-110 dark:hover:bg-gray-800 hover:bg-gray-200 duration-100  focus:outline-none  hover:shadow-sm hover:shadow-gray-600 dark:hover:shadow-gray-500 "
                                 >
                                     Home
                                 </Link>
@@ -70,20 +61,20 @@ const Hedder = () => {
                             >
                                 <Link
                                     href="/Products/Top"
-                                    className="py-2 px-3 border dark:bg-black rounded-full mb-2 focus:outline-none active:scale-110 border-gray-300 focus:border-gray-600 dark:bg-transparent bg-white text-black dark:text-white mx-1 "
+                                    className=" mr-2 py-2 px-3 border dark:bg-black rounded-full mb-2 active:scale-110 focus:border-gray-600 dark:bg-transparent bg-white text-black dark:text-white border-gray-500 w-52 text-center mx-auto hover:scale-110 dark:hover:bg-gray-800 hover:bg-gray-200 duration-100  focus:outline-none  hover:shadow-sm hover:shadow-gray-600 dark:hover:shadow-gray-500 "
                                 >
                                     Products
                                 </Link>
                             </li>
                             <li
-                                className="active:scale-110 duration-100"
+                                className=""
                                 data-aos="fade-left"
                                 data-aos-duration="1000"
                                 data-aos-delay="1200"
                             >
                                 <Link
                                     href="/Post/Search"
-                                    className="py-2 px-3 border dark:bg-black rounded-full mb-2 focus:outline-none active:scale-110 border-gray-300 focus:border-gray-600 dark:bg-transparent bg-white text-black dark:text-white mx-1 "
+                                    className=" mr-2 py-2 px-3 border dark:bg-black rounded-full mb-2 active:scale-110 focus:border-gray-600 dark:bg-transparent bg-white text-black dark:text-white border-gray-500 w-52 text-center mx-auto hover:scale-110 dark:hover:bg-gray-800 hover:bg-gray-200 duration-100  focus:outline-none  hover:shadow-sm hover:shadow-gray-600 dark:hover:shadow-gray-500 "
                                 >
                                     Posts
                                 </Link>

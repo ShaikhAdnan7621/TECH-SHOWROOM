@@ -31,7 +31,7 @@ function Usercardimage() {
     };
 
     return (
-        <div className=" text-black  dark:text-white">
+        <div className=" text-black dark:text-white ">
             {setdata && (
                 <div>
                     <div className="h-36 w-36 group flex justify-center items-center rounded-full border mx-auto border-gray-500">

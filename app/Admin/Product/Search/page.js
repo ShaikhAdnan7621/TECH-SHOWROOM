@@ -39,7 +39,7 @@ export default function Page() {
 
     return (
         <div
-            className="mb-10"
+            className="pt-10 pb-10"
             onKeyUp={(e) => {
                 if (e.key === "ArrowLeft") {
                     if (pagenum.nthpage > 0) {
@@ -65,7 +65,7 @@ export default function Page() {
                 <div className="">
                     <BackButton text={"Back"} />
                 </div>
-                <div className="flex items-center justify-end dark:bg-black dark:text-white gap-4">
+                <div className="flex items-center justify-end bg-transparent dark:text-white gap-4">
                     {loading ? <Loading text={"Please wait"} size={"5"} /> : ""}
                     <div className="flex gap-1">
                         <div>

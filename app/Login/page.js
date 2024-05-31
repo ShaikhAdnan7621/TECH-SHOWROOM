@@ -57,12 +57,12 @@ const Login = (obj) => {
     }, [user]);
     return (
         <>
-            <div className="flex flex-col items-center justify-center min-h-screen dark:text-white ">
-                <h1 className="text-4xl ">
+            <div className="flex flex-col items-center justify-center min-h-screen dark:text-white">
+                <h1 className="text-4xl dark:hover:drop-shadow-lg    dark:hover:shadow-black   ">
                     {loding ? <Loading text={"Login "} size={"7"} /> : "Login"}
                 </h1>
                 <hr className="border-t w-72 mt-2 border-gray-600 h-7" />
-                <label htmlFor="email" className="text-left">
+                <label htmlFor="email" className="text-left w-72 mb-2">
                     Email
                 </label>
                 <input
@@ -75,7 +75,7 @@ const Login = (obj) => {
                     }
                     placeholder="Email"
                 />
-                <label htmlFor="password" className="text-left">
+                <label htmlFor="password" className="text-left w-72 mb-2">
                     Password
                 </label>
                 <input
@@ -90,11 +90,14 @@ const Login = (obj) => {
                 />
                 <button
                     onClick={onLogin}
-                    className="p-2 border text-black dark:text-white w-72 border-gray-800  dark:border-gray-300 rounded-lg mt-5 focus:outline-none focus:border-gray-600 "
+                    className="p-2 border text-black dark:text-white w-72 border-gray-800  dark:border-gray-300 rounded-lg mt-5 focus:outline-none focus:border-gray-600 hover:scale-105 hover:font-bold duration-75 ease-in-out "
                 >
                     <span>{buttondisabled ? "Fill Details" : "Login now"}</span>
                 </button>
-                <Link className="mt-4 underline " href="/Signup">
+                <Link
+                    className="mt-4 underline hover:text-blue-500"
+                    href="/Signup"
+                >
                     tap to SignUp
                 </Link>
             </div>

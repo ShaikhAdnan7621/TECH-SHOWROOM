@@ -1,73 +1,95 @@
-"use client";
+"use client"
+
 import Link from "next/link";
-import React, { useState } from "react";
+import { useState } from "react";
 
 const Searchbar = () => {
-    const [fild, setfild] = useState("brand");
-    const [valuse, setvaluse] = useState("");
+    const [field, setField] = useState("brand");
+    const [value, setValue] = useState("");
+    const [error, setError] = useState(false);
 
     return (
         <>
-            <div className="univarsalsearch  py-2 px-3 border-2 dark:bg-black rounded-full mb-2 focus:outline-none border-gray-300 focus:border-gray-600 overflow-hidden flex focus:ring dark:placeholderbg-gray-600 ">
-                <select
+            <div
+                className={`universalsearch py-2 px-3 border-2 dark:bg-black rounded-full mb-2 focus:outline-none border-gray-300 focus:border-gray-600 overflow-hidden bg-white flex focus:ring dark:placeholder-bg-gray-600 ${
+                    error ? "border-red-500" : "border-gray-300"
+                }`}
+            >                <select
                     id="countries"
                     onClick={(e) => {
-                        setfild(e.target.value);
-                        setvaluse("");
+                        setField(e.target.value);
+                        setValue("");
+                        setError(false);
                     }}
-                    className="text-black dark:text-white dark:bg-black bg-white bg-transparent  focus:outline-none focus:border-none sm:w-20"
+                    className="text-black dark:text-white dark:bg-black bg-opacity-40 focus:outline-none focus:border-none sm:w-20"
                 >
-                    <option defaultValue value="brand">
+                    <option className="bg-transparent" defaultValue value="brand">
                         Brand
                     </option>
-                    <option value="RAM">RAM</option>
-                    <option value="Storage">Storage</option>
-                    <option value="FrontCamera">FrontCamera</option>
-                    <option value="RearCamera">RearCamera</option>
-                    <option value="OS">OS</option>
+                    <option className="bg-transparent" value="RAM">RAM</option>
+                    <option className="bg-transparent" value="Storage">Storage</option>
+                    <option className="bg-transparent" value="FrontCamera">FrontCamera</option>
+                    <option className="bg-transparent" value="RearCamera">RearCamera</option>
+                    <option className="bg-transparent" value="OS">OS</option>
+
                 </select>
 
-                <span className=" border my-1 mx-1 border-gray-400 mt5 "></span>
+                <span className="border my-1 mx-1 border-gray-400 mt5"></span>
                 <input
-                    className=" text-black dark:text-white bg-transparent focus:outline-none focus:border-none w-16 px-2 sm:w-40 border-solid "
+                    className="text-black dark:text-white bg-transparent focus:outline-none focus:border-none w-16 px-2 sm:w-40 border-solid"
                     type="search"
                     name="search"
-                    value={valuse}
+                    value={value}
                     onChange={(e) => {
-                        const valuse = e.target.value;
-                        switch (fild) {
+                        const inputValue = e.target.value;
+                        let isValid = true;
+                        if (inputValue == ""){
+                            setValue(inputValue)
+                            setError(true);
+                            return;
+                        }
+                        switch (field) {
                             case "brand":
                             case "OS":
-                                if (/^[a-zA-Z]+$/.test(valuse)) {
-                                    setvaluse(valuse);
-                                }
+                                isValid = /^[a-zA-Z]+$/.test(inputValue);
                                 break;
                             case "RAM":
                             case "Storage":
                             case "FrontCamera":
                             case "RearCamera":
-                                if (/^[0-9]+$/.test(valuse)) {
-                                    setvaluse(valuse);
-                                }
+                                isValid = /^[0-9]+$/.test(inputValue);
                                 break;
                             default:
-                                setvaluse(valuse);
+                                isValid = true;
                                 break;
+                        }
+
+                        if (inputValue === "" || !isValid) {
+                            
+                            setError(true);
+                        } else {
+                            setError(false);
+                        }
+
+                        if (isValid) {
+                            setValue(inputValue);
                         }
                     }}
                     placeholder="Search"
                     onKeyUp={(e) => {
-                        if (e.key === "Enter") {
-                            window.location.href = `/Products/Search?fild=${fild}&valuse=${valuse}`;
+                        if (e.key === "Enter" && value === "") {
+                            setError(true);
+                        } else if (e.key === "Enter") {
+                            window.location.href = `/Products/Search?field=${field}&value=${value}`;
                         }
                     }}
                 />
-                <span className=" border my-1 mx-1 sm:block hidden border-gray-400 "></span>
+                <span className="border my-1 mx-1 sm:block hidden border-gray-400"></span>
 
                 <Link
                     href={{
                         pathname: "/Products/Search",
-                        query: { fild: fild, valuse: valuse },
+                        query: { fild: field, valuse: value },
                     }}
                     className="focus:outline-none focus:border-none pl-1 pr-2"
                 >

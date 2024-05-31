@@ -1,5 +1,6 @@
 import "./globals.css";
 import Darkmodetoggle from "@/components/buttons/Darkmodetoggle.js";
+import BgAnimation from "@/components/ui/BgAnimation";
 import { Inter } from "next/font/google";
 import { Toaster } from "react-hot-toast";
 
@@ -12,17 +13,20 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
     return (
-        <html lang="en" className="dark:bg-black ">
-            <body className={`${inter.className} dark:bg-black`}>
-                <div className="fixed bottom-0 dark:bg-transparent right-0 m-5 z-50 ">
+        <html lang="en" className="dark:bg-black">
+            <body
+                className={`${inter.className} `}
+            >
+                <div className=" inset-0 overflow-y-scroll w-screen ">
                     <Darkmodetoggle />
-                </div>
-                <Toaster position="bottom-left" reverseOrder={false} />
-                <div className=" max-w-7xl dark:bg-black mx-auto">
-                    <div className="px-3 sm:px-11 md:px-13 lg:px-14 ">
-                        {children}
+                    <Toaster position="bottom-left" reverseOrder={false} />
+                    <div className=" max-w-7xl bg-white dark:bg-black pb-10w rounded-xl dark:bg-opacity-50 bg-opacity-50 mx-auto">
+                        <div className="px-3 sm:px-11 md:px-13 lg:px-14 ">
+                            {children}
+                        </div>
                     </div>
                 </div>
+                <BgAnimation />
             </body>
         </html>
     );

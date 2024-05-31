@@ -24,7 +24,7 @@ function Page(obj) {
         setloading(false);
     };
     return (
-        <div className="mb-20 mt-10 dark:text-white">
+        <div className="mb-20 py-10 dark:text-white">
             <div className="flex dark:text-white ">
                 <BackButton text={"Back"} />
             </div>
